@@ -5,7 +5,7 @@ import os
 import json
 
 class EmotionClassifier:
-    def __init__(self, model_path="./emotion_model_8emo"):
+    def __init__(self, model_path="./emotion_model_12emo"):
         """加载8类情绪分类模型"""
         # 加载模型和分词器
         self.tokenizer = BertTokenizer.from_pretrained(model_path)
@@ -75,9 +75,9 @@ class EmotionClassifier:
         ]
 
 def main():
-    print("【8类情绪分类器】")
+    print("【12类情绪分类器】")
     print("="*40)
-    print("情绪类别: 高兴, 厌恶, 害羞, 害怕, 生气, 认真, 紧张, 慌张")
+    print("情绪类别: ...")
     print("="*40)
     
     # 初始化分类器
@@ -87,7 +87,7 @@ def main():
     except Exception as e:
         print(f"\n模型加载失败: {str(e)}")
         print("请检查：")
-        print("1. 模型路径 ./emotion_model_8emo 是否存在")
+        print("1. 模型路径 ./emotion_model_12emo 是否存在")
         print("2. 目录是否包含 label_mapping.json 文件")
         return
     
