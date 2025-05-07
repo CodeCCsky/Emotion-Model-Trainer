@@ -5,7 +5,7 @@ import os
 def add_to_csv():
     """交互式添加情绪数据到CSV文件"""
     # 检查文件是否存在
-    file_path = "emotion_data.csv"
+    file_path = "emotion_data_manual.csv"
     if os.path.exists(file_path):
         df = pd.read_csv(file_path)
         print(f"\n当前已有数据: {len(df)}条")
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     print("=== 情绪数据录入工具 ===")
     print("说明: 逐条添加文本和对应情绪标签")
     add_to_csv()
-    print("\n数据已保存到 emotion_data.csv")
+    print("\n数据已保存到 emotion_data_manual.csv")

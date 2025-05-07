@@ -71,7 +71,7 @@ def clean_csv_file(input_path, output_path):
 
 if __name__ == "__main__":
     input_file = "emotion_data_manual.csv"  # 原始数据路径
-    output_file = "emotion_data_manual_cleaned.csv"  # 清洗后保存路径
+    output_file = "emotion_data_manual.csv"  # 清洗后保存路径
     
     clean_csv_file(input_file, output_file)
     

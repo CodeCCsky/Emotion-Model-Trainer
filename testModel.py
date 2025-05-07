@@ -5,7 +5,7 @@ import os
 import json
 
 class EmotionClassifier:
-    def __init__(self, model_path="./emotion_model_12emo"):
+    def __init__(self, model_path="./emotion_model_18emo"):
         """加载8类情绪分类模型"""
         # 加载模型和分词器
         self.tokenizer = BertTokenizer.from_pretrained(model_path)
@@ -15,7 +15,7 @@ class EmotionClassifier:
         
         # 从保存的配置加载标签映射
         config_path = os.path.join(model_path, "label_mapping.json")
-        with open(config_path, "r") as f:
+        with open(config_path, "r", encoding='utf-8') as f: 
             label_config = json.load(f)
         self.id2label = label_config["id2label"]
         self.label2id = label_config["label2id"]
