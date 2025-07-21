@@ -272,7 +272,7 @@ def train_and_evaluate():
     # 9. 保存模型和配置
     os.makedirs(final_model_dir, exist_ok=True)
     log.info(f"\n正在保存最佳模型到: {final_model_dir}...")
-    trainer.save_model(final_model_dir)
+    trainer.save_model(final_model_dir)  # 只会保存adapter的权重和配置文件
     tokenizer.save_pretrained(final_model_dir)
 
     # 保存标签映射
