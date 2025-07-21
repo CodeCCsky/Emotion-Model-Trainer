@@ -199,11 +199,13 @@ def train_and_evaluate():
     training_log_path = os.path.join(output_dir_base, "training_log.jsonl")
     final_report_path = os.path.join(output_dir_base, "final_performance_report.json")
     final_model_dir = os.path.join(output_dir_base, "emotion_model_18emo")
+    base_model_dir = os.path.join(output_dir_base, "emotion_model_18emo/base_model")
 
     log.info(f"所有输出将被保存到: {os.path.abspath(output_dir_base)}")
     log.info(f"训练日志文件: {training_log_path}")
     log.info(f"最终性能报告文件: {final_report_path}")
     log.info(f"最终模型目录: {final_model_dir}")
+    log.info(f"原模型目录: {base_model_dir}")
 
     # 5. 训练配置
     training_args = TrainingArguments(
@@ -291,7 +293,9 @@ def train_and_evaluate():
     os.makedirs(final_model_dir, exist_ok=True)
     log.info(f"\n正在保存最佳模型到: {final_model_dir}...")
     trainer.save_model(final_model_dir)  # 只会保存adapter的权重和配置文件
-    tokenizer.save_pretrained(final_model_dir)
+    os.makedirs(base_model_dir, exist_ok=True)
+    base_model.save_pretrained(base_model_dir)
+    tokenizer.save_pretrained(base_model_dir)
 
     # 保存标签映射
     label_mapping_path = os.path.join(final_model_dir, "label_mapping.json")
