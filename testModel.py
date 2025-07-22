@@ -1,4 +1,4 @@
-# emotion_interactive_8emo.py
+# emotion_interactive_18emo.py
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import os
@@ -6,7 +6,7 @@ import json
 
 
 class EmotionClassifier:
-    def __init__(self, model_path="./result_18emo_output_sbert/emotion_model_18emo"):
+    def __init__(self, model_path="./result_18emo_output/emotion_model_18emo"):
         """加载8类情绪分类模型"""
         # 加载模型和分词器
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -65,7 +65,7 @@ class EmotionClassifier:
 
 
 def main():
-    print("【12类情绪分类器】")
+    print("【18类情绪分类器】")
     print("=" * 40)
     print("情绪类别: ...")
     print("=" * 40)
@@ -77,7 +77,7 @@ def main():
     except Exception as e:
         print(f"\n模型加载失败: {str(e)}")
         print("请检查：")
-        print("1. 模型路径 ./emotion_model_12emo 是否存在")
+        print("1. 模型路径 ./emotion_model_18emo 是否存在")
         print("2. 目录是否包含 label_mapping.json 文件")
         return
 
