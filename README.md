@@ -19,7 +19,7 @@
 
       运行startTrain_sbert.py等待训练完毕，完成后自动生成报告
 
-    - S-BERT 为基座模型，使用 PEFT 进行训练
+    - S-BERT 为基座模型，使用 PEFT-Turning 训练
 
       > 需要安装sentence-transformers, peft, accelerate库
 
@@ -27,7 +27,9 @@
 
 ## 如何测试？
 
-  使用testModel.py测试模型
+  全参数微调的模型可使用testModel.py测试
+
+  使用PEFT-Turning的模型可使用testModel_PEFT.py测试
 
 ## 额外功能
 
