@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report
 from transformers import (
+    AutoModel,
     AutoTokenizer,
     AutoModelForSequenceClassification,
     Trainer,
@@ -294,7 +295,7 @@ def train_and_evaluate():
     log.info(f"\n正在保存最佳模型到: {final_model_dir}...")
     trainer.save_model(final_model_dir)  # 只会保存adapter的权重和配置文件
     os.makedirs(base_model_dir, exist_ok=True)
-    base_model.save_pretrained(base_model_dir)
+    AutoModel.from_pretrained(model_name).save_pretrained(base_model_dir)
     tokenizer.save_pretrained(base_model_dir)
 
     # 保存标签映射
