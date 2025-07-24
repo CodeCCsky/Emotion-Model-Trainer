@@ -21,7 +21,7 @@ class EmotionAndEmbeddingModel:
         self.id2label = label_config["id2label"]
         self.label2id = label_config["label2id"]
 
-        base_model = AutoModelForSequenceClassification.from_pretrained(  # BUG 不能正确加载模型的**所有参数**
+        base_model = AutoModelForSequenceClassification.from_pretrained(
             base_model_path,
             num_labels=18,
             id2label=self.id2label,
